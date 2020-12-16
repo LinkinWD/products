@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= tuote.name  %>  </title>
+</head>
+<body>
+    <h1><%= tuote.name  %> </h1>
+    <ul>
+        <li>Price: <%=tuote.price  %> </li>
+        <li>category: <a href="/products?category=<%=tuote.category%>"><%=tuote.category  %></a> </li>
+        
+    </ul><br>
+    <a href="/products">All products</a>
+    <a href="/products/<%=tuote._id%>/edit">editoi tuotetta</a>
+    <form action="/products/<%=tuote._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+</body>
+</html>

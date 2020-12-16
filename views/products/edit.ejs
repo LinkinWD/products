@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+<body>
+    <h1>Muokkaa tuotetta</h1>
+    <form action="/products/<%=tuote._id%>?_method=PUT" method="POST">
+    <label for="name">Tuotteen nimi</label>
+    <input type="text" name="name" id="name" placeholder="tuotteen nimi" value="<%=tuote.name%> ">
+    <label for="price">Yksikköhinta</label>
+    <input type="number" name="price" id="price" value="<%=tuote.price%>"  placeholder="tuotteen hinta">
+    <label for="category">valitse luokka</label>
+    <select name="category" id="category">
+        <% for(let category of categories) { %> 
+            <option value="<%=category%>" <%= tuote.category === category ? 'selected' : ''  %> ><%=category%></option>
+            <% } %> 
+    </select>
+    <button>Lähetä</button>
+</form>
+<a href="/products">Poistu</a>
+</body>
+</html>
